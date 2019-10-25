@@ -66,7 +66,10 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ letters: event.target.value });
+    this.setState({
+      letters: event.target.value,
+      results: main(event.target.value)
+    });
   }
 
   handleSubmit(event) {
@@ -87,21 +90,20 @@ class App extends React.Component {
               onChange={this.handleChange}
               value={this.state.letters}
               placeholder="Letters"
+              maxLength={11}
             />
           </label>
-          <input type="submit" value="&#10005;" />
         </form>
-        {this.state.results.length > 0 && (
-          <div className="results">Results:</div>
-        )}
+        <div>enter up to 11 letters and see what we can find</div>
         {Object.keys(this.state.results).map(key => {
           const results = this.state.results[key].join(", ");
-          if (this.state.results[key].length !== 0)
+          if (this.state.results[key].length !== 0) {
             return (
-              <p>
+              <p key={`${key}a`}>
                 {key}: {results}
               </p>
             );
+          } else return <span />;
         })}
       </div>
     );
