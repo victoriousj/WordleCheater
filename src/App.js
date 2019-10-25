@@ -90,6 +90,7 @@ class App extends React.Component {
               onChange={this.handleChange}
               value={this.state.letters}
               placeholder="Letters"
+              autoComplete={"off"}
               maxLength={11}
             />
           </label>
