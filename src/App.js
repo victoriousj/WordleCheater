@@ -62,20 +62,12 @@ class App extends React.Component {
     this.state = { letters: "", results: {} };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       letters: event.target.value,
       results: main(event.target.value)
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.setState({
-      results: main(this.state.letters)
     });
   }
 
