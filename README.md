@@ -4,7 +4,7 @@ Words With Friends or WordScape are games where a player is given a series of le
 
 ---
 
-![Words With JavaScript](./wwjs.png?raw=true "Get a little dignity")
+![Words With JavaScript](./wwjs.png?raw=true)
 
 ---
 
