@@ -16,8 +16,7 @@ body {
 
 form {
   width: 100%;
-  margin: 5vh 0 1vh;
-  text-align: center;
+  margin: 2vh 0vh 5vh;
 }
 
 input {
@@ -26,9 +25,6 @@ input {
   outline: none;
   background: none;
   color: white;
-}
-
-input[type="text"] {
   padding: 0px 10px;
   min-width: 5em;
   border-radius: 5px;
@@ -39,6 +35,25 @@ input[type="text"] {
   color: #333;
 }
 
-.results {
-  font-size: 2em;
+.title {
+  font-size: 2.5em;
+  color: aqua;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.result {
+  font-size: 1.2em;
+  border: 1px solid fuchsia;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.letter-count {
+  font-weight: bold;
+  color: aqua;
+}
+
+code {
+  color: fuchsia;
 }
