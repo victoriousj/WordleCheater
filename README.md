@@ -22,7 +22,7 @@ My dad has spent hours and hours playing these games and he asks his family and 
 
 ## How It Works
 
-This will turn the input letters in to an JS object with a key for every letter. It will then give each letter a value corresponding to the amount of times the letter appears. The letters 'r', 'l', 'l', 'e', 'a' would look like this:
+This will turn the input letters in to an JS object with a key for every letter. It will then give each letter a value corresponding to the amount of times the letter appears. The letters 'r', 'l', 'l', 'e', 'a', and 'y' would look like this:
 
 ![Words With JavaScript](./really.png?raw=true)
 
