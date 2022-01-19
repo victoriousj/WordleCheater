@@ -1,54 +1,51 @@
 const dictionary = require("./dictionary.json");
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
 const dict = dictionary.dictionary;
 
-// Create an object that has a property
-// for each letter, with a value of 0.
-function emptyFrequencies() {
-  const emptyFrequency = {};
+function main(state) {
+  const { letters, excludedLetters, unknownLetters } = state;
 
-  [...alphabet].forEach(c => (emptyFrequency[c] = 0));
+  let results = dict;
 
-  return emptyFrequency;
-}
+  if (excludedLetters.length) {
+    results = results.filter((word) => {
+      var wordArr = word.split("");
+      for (let i = 0; i < excludedLetters.length; i++) {
+        if (wordArr.includes(excludedLetters[i])) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
 
-// Iterate through a word and increment
-// a value for each encounter of a letter.
-function frequencies(str) {
-  const freqs = emptyFrequencies();
+  if (letters.some((x) => x !== "")) {
+    results = results.filter((word) => {
+      for (let i = 0; i <= 4; i++) {
+        if (letters[i] !== "") {
+          if (letters[i] !== word[i]) {
+            return false;
+          }
+        }
+      }
+      return true;
+    });
+  }
 
-  [...str].forEach(c => (freqs[c] += 1));
-
-  return freqs;
-}
-
-// Determine if a given word has letters outside
-// the ones entered in the search params
-function match(params, dictWord) {
-  const dictWordFreqencies = frequencies(dictWord);
-
-  return [...alphabet].every(i => params[i] >= dictWordFreqencies[i]);
-}
-
-function main(params) {
-  const results = {};
-  const matches = [];
-  const letterFrequencies = frequencies(params);
-  const properLengthWords = dict.filter(word => word.length <= params.length);
-
-  for (let i = 0; i < properLengthWords.length; i++) {
-    if (match(letterFrequencies, properLengthWords[i])) {
-      matches.push(properLengthWords[i]);
+  for (const [key, value] of Object.entries(unknownLetters)) {
+    if (value.length > 0) {
+      results = results.filter((word) => {
+        if (!word.split("").includes(key)) {
+          return false;
+        }
+        for (let i = 0; i <= value.length; i++) {
+          if (word[value[i]] === key) {
+            return false;
+          }
+        }
+        return true;
+      });
     }
   }
-
-  for (let i = 1; i < params.length + 1; i++) {
-    results[i] = matches.filter(w => w.length === i);
-  }
-
-  Object.keys(results).forEach(
-    key => results[key].length === 0 && delete results[key]
-  );
 
   return results;
 }

@@ -25,10 +25,12 @@ input {
   outline: none;
   background: none;
   color: white;
-  padding: 0px 10px;
-  min-width: 5em;
   border-radius: 5px;
   text-align: center;
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  text-transform: uppercase;
 }
 
 ::placeholder {
@@ -56,4 +58,48 @@ input {
 
 code {
   color: fuchsia;
+}
+
+button.unkown-letter.letter:hover {
+  background-color: #dff;
+}
+
+button.unkown-letter.letter.active {
+  background-color: cyan;
+}
+
+button.letter {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border: none;
+  user-select: none;
+  margin-right: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+button.letter:hover {
+  background-color: #fdf;
+}
+
+button.letter.active {
+  background-color: fuchsia;
+}
+
+.submit {
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 3px;
+  font-size: 1.25em;
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  border-color: fuchsia;
 }
