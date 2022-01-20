@@ -1,3 +1,7 @@
+* {
+  text-transform: uppercase;
+}
+
 body {
   text-align: center;
   display: flex;
@@ -5,11 +9,6 @@ body {
   margin: 0;
   font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-form {
-  width: 100%;
-  margin: 2vh 0vh 5vh;
 }
 
 input {
@@ -40,11 +39,6 @@ input {
   margin: 0 auto;
 }
 
-.letter-count {
-  font-weight: bold;
-  color: aqua;
-}
-
 code {
   color: fuchsia;
 }
@@ -71,6 +65,7 @@ button.letter {
   justify-content: center;
   align-items: center;
 }
+
 button.letter:hover {
   background-color: #fdf;
 }
@@ -95,10 +90,6 @@ button.letter.active {
   color: white;
 }
 
-div {
-  text-transform: uppercase;
-}
-
 .results.answer {
   color: cyan;
 }
@@ -106,4 +97,28 @@ div {
 .results {
   border-radius: 5px;
   text-align: center;
+  border: 1px solid white;
+  margin: 20px;
+  padding: 0 20px 20px 20px;
+  max-width: 900px;
+}
+
+.container {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.link {
+  text-transform: lowercase;
+  margin-left: 11px;
+}
+.link img {
+  width: 11px;
+}
+
+.link:hover {
+  color: white;
 }

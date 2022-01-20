@@ -16,7 +16,7 @@ function UnknownLetter(props) {
   }
 
   return (
-    <div style={{ marginBottom: "2px" }}>
+    <div style={{ marginBottom: "1px", marginLeft: "-30px" }}>
       <span
         style={{
           marginRight: "10px",
