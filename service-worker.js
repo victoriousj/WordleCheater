@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/WordleCheater/precache-manifest.aef04f34a8c57ee2fea710e272f79152.js"
+  "/WordleCheater/precache-manifest.4edf42aa6d1aca9a3ca2f0f31ac1a7db.js"
 );
 
 self.addEventListener('message', (event) => {
