@@ -57,7 +57,6 @@ class App extends React.Component {
       var letters = this.state.letters;
       letters[index] = event.nativeEvent.key;
       this.setState({ ...this.state, letters });
-      console.log(this.state.letters);
     } else if (event.key === "Delete" || event.key === "Backspace") {
       var letters = this.state.letters;
       letters[index] = "";
