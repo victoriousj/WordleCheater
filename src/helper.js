@@ -46,6 +46,9 @@ function main(state) {
       });
     }
   }
+  if (results.length === dict.length) {
+    return [];
+  }
 
   return results;
 }

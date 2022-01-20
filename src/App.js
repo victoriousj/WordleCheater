@@ -1,6 +1,5 @@
 import React from "react";
 
-import Results from "./Results";
 import LetterButton from "./LetterButton";
 import main from "./helper";
 
@@ -20,12 +19,10 @@ class App extends React.Component {
         .split("")
         .reduce((a, b) => ({ ...a, [b]: [] }), {}),
     };
-    console.log(this.state);
   }
 
   addGuess = () => {
     var results = main(this.state);
-    console.log(results);
     this.setState({ ...this.state, results });
   };
 
@@ -46,7 +43,7 @@ class App extends React.Component {
       event.target.nextSibling.focus();
     }
 
-    if (event.target.nextSibling === null && event.key === "Enter") {
+    if (event.key === "Enter") {
       this.addGuess();
     }
   };
@@ -61,6 +58,10 @@ class App extends React.Component {
       letters[index] = event.nativeEvent.key;
       this.setState({ ...this.state, letters });
       console.log(this.state.letters);
+    } else if (event.key === "Delete" || event.key === "Backspace") {
+      var letters = this.state.letters;
+      letters[index] = "";
+      this.setState({ ...this.state, letters });
     }
   };
 
@@ -93,11 +94,9 @@ class App extends React.Component {
       ...this.state,
       unknownLetters,
     });
-    console.log(this.state);
   };
 
   render() {
-    const results = this.state.results;
     const letterButtons = alphabet
       .split("")
       .map((x) => (
@@ -122,7 +121,7 @@ class App extends React.Component {
       ));
 
     return (
-      <div>
+      <div style={{ marginBottom: "50px" }}>
         <p className="title">Wordle "Helper"</p>
         <a href="https://github.com/victoriousj/">
           <code>by victor d johnson</code>
@@ -182,20 +181,31 @@ class App extends React.Component {
         </div>
         <div style={{ marginTop: "20px" }}>
           <div style={{ marginBottom: "10px" }}>
-            letters with unknown positions (check where letters are confirmed
-            NOT)
+            letters with unknown positions - check where letters are NOT located
           </div>
           {unknownLetters}
         </div>
 
-        <div>{this.state.results.join(", ")} </div>
-        {/* {Object.keys(results).map((key) => (
-          <Results
-            key={`${key}`}
-            letterCount={key}
-            results={results[key].join(", ")}
-          />
-        ))} */}
+        {this.state.results.length > 0 && (
+          <div
+            style={{
+              border: "1px solid white",
+              padding: "10px 20px",
+              marginTop: "20px",
+              borderRadius: "5px",
+            }}
+          >
+            <div style={{ fontSize: "2em" }}>Results</div>
+            <div
+              style={{ marginTop: "20px" }}
+              className={`${
+                this.state.results.length === 1 ? "answer" : ""
+              } results`}
+            >
+              {this.state.results.join(", ")}
+            </div>
+          </div>
+        )}
       </div>
     );
   }

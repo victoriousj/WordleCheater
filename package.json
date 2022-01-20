@@ -18,7 +18,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://victoriousj.github.io/javascript-words-with-javascript",
+  "homepage": " http://victoriousj.github.io/WordleCheater",
   "browserslist": {
     "production": [
       ">0.2%",
