@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/WordleCheater/static/css/main.49d47eb1.chunk.css",
-    "main.js": "/WordleCheater/static/js/main.9e9bc3bd.chunk.js",
-    "main.js.map": "/WordleCheater/static/js/main.9e9bc3bd.chunk.js.map",
+    "main.js": "/WordleCheater/static/js/main.fe779a81.chunk.js",
+    "main.js.map": "/WordleCheater/static/js/main.fe779a81.chunk.js.map",
     "runtime-main.js": "/WordleCheater/static/js/runtime-main.00de2595.js",
     "runtime-main.js.map": "/WordleCheater/static/js/runtime-main.00de2595.js.map",
     "static/js/2.51911834.chunk.js": "/WordleCheater/static/js/2.51911834.chunk.js",
     "static/js/2.51911834.chunk.js.map": "/WordleCheater/static/js/2.51911834.chunk.js.map",
     "index.html": "/WordleCheater/index.html",
-    "precache-manifest.bdd78e8a4c6995436554af3b28d42923.js": "/WordleCheater/precache-manifest.bdd78e8a4c6995436554af3b28d42923.js",
+    "precache-manifest.92d6ad1cefc30fee23fe866450be30b2.js": "/WordleCheater/precache-manifest.92d6ad1cefc30fee23fe866450be30b2.js",
     "service-worker.js": "/WordleCheater/service-worker.js",
     "static/css/main.49d47eb1.chunk.css.map": "/WordleCheater/static/css/main.49d47eb1.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.00de2595.js",
     "static/js/2.51911834.chunk.js",
     "static/css/main.49d47eb1.chunk.css",
-    "static/js/main.9e9bc3bd.chunk.js"
+    "static/js/main.fe779a81.chunk.js"
   ]
 }

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "854441b19480da7db1cd8c713f57c99a",
+    "revision": "4fbcf15fba0a87ed0c2e6d0feb231f18",
     "url": "/WordleCheater/index.html"
   },
   {
-    "revision": "6dae2b53cdf474c36c50",
+    "revision": "b65b26a824709dd42a75",
     "url": "/WordleCheater/static/css/main.49d47eb1.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/WordleCheater/static/js/2.51911834.chunk.js"
   },
   {
-    "revision": "6dae2b53cdf474c36c50",
-    "url": "/WordleCheater/static/js/main.9e9bc3bd.chunk.js"
+    "revision": "b65b26a824709dd42a75",
+    "url": "/WordleCheater/static/js/main.fe779a81.chunk.js"
   },
   {
     "revision": "bb76a4ee41fe3be3e2d3",
