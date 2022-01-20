@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       letters: ["", "", "", "", ""],
       excludedLetters: [],
-      results: [],
+      results: "",
       unknownLetters: alphabet
         .split("")
         .reduce((a, b) => ({ ...a, [b]: [] }), {}),
@@ -105,6 +105,28 @@ class App extends React.Component {
         <a href="https://github.com/victoriousj/">
           <code>by victor d johnson</code>
         </a>
+        {this.state.results !== "" && (
+          <div
+            style={{
+              border: "1px solid white",
+              padding: "10px 20px",
+              marginTop: "20px",
+              borderRadius: "5px",
+            }}
+          >
+            <div style={{ fontSize: "2em" }}>Results</div>
+            <div
+              style={{ marginTop: "20px" }}
+              className={`${
+                this.state.results.length === 1 ? "answer" : ""
+              } results`}
+            >
+              {this.state.results.length > 0
+                ? this.state.results.join(", ")
+                : "NO RESULTS"}
+            </div>
+          </div>
+        )}
         <div style={{ marginTop: "20px" }}>
           <button
             className="submit"
@@ -158,27 +180,6 @@ class App extends React.Component {
           </div>
           {unknownLetters}
         </div>
-
-        {this.state.results.length > 0 && (
-          <div
-            style={{
-              border: "1px solid white",
-              padding: "10px 20px",
-              marginTop: "20px",
-              borderRadius: "5px",
-            }}
-          >
-            <div style={{ fontSize: "2em" }}>Results</div>
-            <div
-              style={{ marginTop: "20px" }}
-              className={`${
-                this.state.results.length === 1 ? "answer" : ""
-              } results`}
-            >
-              {this.state.results.join(", ")}
-            </div>
-          </div>
-        )}
       </div>
     );
   }
