@@ -1,10 +1,11 @@
 import React from "react";
 
 import LetterButton from "./LetterButton";
+import UnknownLetter from "./UnknownLetter";
+
 import main from "./helper";
 
 import "./App.css";
-import UnknownLetter from "./UnknownLetter";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
@@ -26,42 +27,21 @@ class App extends React.Component {
     this.setState({ ...this.state, results });
   };
 
-  keyUp = (event) => {
-    if (
-      event.key === "Delete" ||
-      event.key === "Backspace" ||
-      event.key === "ArrowLeft"
-    ) {
-      if (event.target.previousSibling !== null) {
+  onInput = (index, event) => {
+    debugger;
+    if (event.target.value) {
+      if (event.target.nextSibling) {
+        event.target.nextSibling.focus();
+      }
+    } else {
+      if (event.target.previousSibling) {
         event.target.previousSibling.focus();
       }
-    } else if (
-      event.target.nextSibling !== null &&
-      ((event.keyCode >= 65 && event.keyCode <= 90) ||
-        event.key === "ArrowRight")
-    ) {
-      event.target.nextSibling.focus();
     }
 
-    if (event.key === "Enter") {
-      this.addGuess();
-    }
-  };
-
-  keyDown = (index, event) => {
-    if (event.keyCode >= 65 && event.keyCode <= 90) {
-      if (event.target.value) {
-        event.target.value = event.nativeEvent.key;
-      }
-
-      var letters = this.state.letters;
-      letters[index] = event.nativeEvent.key;
-      this.setState({ ...this.state, letters });
-    } else if (event.key === "Delete" || event.key === "Backspace") {
-      var letters = this.state.letters;
-      letters[index] = "";
-      this.setState({ ...this.state, letters });
-    }
+    var letters = this.state.letters;
+    letters[index] = event.target.value;
+    this.setState({ ...this.state, letters });
   };
 
   toggleLetter = (x) => {
@@ -140,33 +120,27 @@ class App extends React.Component {
             letters you know their placement
           </div>
           <input
-            onKeyUp={this.keyUp}
-            onKeyDown={(e) => this.keyDown(0, e)}
-            type="text"
-            maxLength={1}
-            pattern="[A-Za-z]"
-          />
-          <input
-            onKeyUp={this.keyUp}
-            onKeyDown={(e) => this.keyDown(1, e)}
+            onInput={(e) => this.onInput(0, e)}
             type="text"
             maxLength={1}
           />
           <input
-            onKeyUp={this.keyUp}
-            onKeyDown={(e) => this.keyDown(2, e)}
+            onInput={(e) => this.onInput(1, e)}
             type="text"
             maxLength={1}
           />
           <input
-            onKeyUp={this.keyUp}
-            onKeyDown={(e) => this.keyDown(3, e)}
+            onInput={(e) => this.onInput(2, e)}
             type="text"
             maxLength={1}
           />
           <input
-            onKeyUp={this.keyUp}
-            onKeyDown={(e) => this.keyDown(4, e)}
+            onInput={(e) => this.onInput(3, e)}
+            type="text"
+            maxLength={1}
+          />
+          <input
+            onInput={(e) => this.onInput(4, e)}
             type="text"
             maxLength={1}
           />
