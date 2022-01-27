@@ -8,6 +8,8 @@ import findResults from "./helper";
 import external from "./external.png";
 import "./App.css";
 
+const answers = require("./answers.json");
+
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 class App extends React.Component {
@@ -20,7 +22,20 @@ class App extends React.Component {
       unknownLetters: alphabet
         .split("")
         .reduce((a, b) => ({ ...a, [b]: [] }), {}),
+      todaysAnswer: "",
+      answerText: "Todays's Answer",
     };
+  }
+
+  componentDidMount() {
+    const releaseDate = new Date(2021, 5, 19).valueOf();
+    const today = new Date().valueOf();
+
+    let numberOfDays = (today - releaseDate) / 1000 / 86400;
+    numberOfDays = Math.round(numberOfDays - 0.5);
+    const todaysAnswer = answers[numberOfDays];
+
+    this.setState({ ...this.state, todaysAnswer });
   }
 
   addGuess = () => {
@@ -29,16 +44,25 @@ class App extends React.Component {
   };
 
   setLetter = (index, event) => {
-    const { value, nextSibling, previousSibling } = event.target;
+    const { nextSibling, previousSibling } = event.target;
+    let key = event.key.toLowerCase();
 
-    if (value && nextSibling) {
-      nextSibling.focus();
-    } else if (!value && previousSibling) {
+    if (key === "unidentified") {
+      key = document.querySelectorAll("input[type=text]")[index].value;
+    }
+
+    if (
+      (key === "backspace" || key === "arrowleft" || key === "") &&
+      previousSibling
+    ) {
       previousSibling.focus();
+      key = "";
+    } else if (key && nextSibling) {
+      nextSibling.focus();
     }
 
     const letters = this.state.letters;
-    letters[index] = value.toLowerCase();
+    letters[index] = key.toLowerCase();
     this.setState({ ...this.state, letters });
   };
 
@@ -67,6 +91,14 @@ class App extends React.Component {
     });
   };
 
+  showAnswer = () => {
+    this.setState({ ...this.state, answerText: this.state.todaysAnswer });
+
+    setTimeout(() => {
+      this.setState({ ...this.state, answerText: "Today's Answer" });
+    }, 2000);
+  };
+
   render() {
     const letterButtons = alphabet
       .split("")
@@ -92,22 +124,31 @@ class App extends React.Component {
       ));
 
     const knownLetters = [0, 1, 2, 3, 4].map((index) => (
-      <KnownLetter index={index} setLetter={this.setLetter} />
+      <KnownLetter index={index} setLetter={this.setLetter} key={`${index}`} />
     ));
 
     return (
       <div className="container">
+        <div className="banner-container">
+          <div className="banner" onClick={this.showAnswer}>
+            {this.state.answerText}
+          </div>
+        </div>
+
         <p className="title">Wordle Helper</p>
-        <a href="https://github.com/victoriousj/" target="_blank">
+        <a
+          href="https://github.com/victoriousj/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <code className="link">
             by victor d johnson <img src={external} alt="Github Link"></img>
           </code>
         </a>
         {this.state.results !== "" && (
           <div className="results">
-            <div style={{ fontSize: "2em" }}>RESULTS</div>
+            <div style={{ fontSize: "1.25em", padding: "10px" }}>RESULTS:</div>
             <div
-              style={{ margin: "20px" }}
               className={`${this.state.results.length === 1 ? "answer" : ""}`}
             >
               {this.state.results.length > 0

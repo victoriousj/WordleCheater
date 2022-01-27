@@ -5,7 +5,7 @@ function KnownLetter(props) {
 
   return (
     <input
-      onInput={(e) => setLetter(index, e)}
+      onKeyUp={(e) => setLetter(index, e)}
       type="text"
       autoCapitalize="none"
       autoComplete="off"
