@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/WordleCheater/static/css/main.dd89ef50.css",
-    "main.js": "/WordleCheater/static/js/main.0a444b5a.js",
+    "main.js": "/WordleCheater/static/js/main.c67f9e49.js",
     "index.html": "/WordleCheater/index.html",
     "main.dd89ef50.css.map": "/WordleCheater/static/css/main.dd89ef50.css.map",
-    "main.0a444b5a.js.map": "/WordleCheater/static/js/main.0a444b5a.js.map"
+    "main.c67f9e49.js.map": "/WordleCheater/static/js/main.c67f9e49.js.map"
   },
   "entrypoints": [
     "static/css/main.dd89ef50.css",
-    "static/js/main.0a444b5a.js"
+    "static/js/main.c67f9e49.js"
   ]
 }
